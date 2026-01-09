@@ -20,6 +20,8 @@ https://mp.weixin.qq.com/s/phkIxGv7In4M6ogfHOMq1w
 
 ## 版本说明
 
+V1.1，增加了“快速启动工具”，并封装为一键安装包。
+
 V1.0，支持多操作系统，Win10以上系统一键启动。
 
 ## 合作协议
