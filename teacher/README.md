@@ -1,5 +1,9 @@
 # QuickForm：教师版
 
+## 下载地址
+
+https://my.feishu.cn/drive/folder/Q0FUf5KnLlQHJRdqyprck8YTnre?from=from_copylink
+
 ## 功能演示
 
 https://wzkjgz.site/quickform/
