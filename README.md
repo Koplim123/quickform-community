@@ -19,7 +19,7 @@ https://wzkjgz.site/quickform/
 
 1.教师版（teacher）
 
-开源，最新版本为1.1。
+开源，最新版本为1.2。
 
 2.校园版（school）
 
