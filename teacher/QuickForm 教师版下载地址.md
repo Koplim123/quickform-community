@@ -1,4 +1,4 @@
-# QuickForm 1.1教师版
+# QuickForm（教师版）1.2
 
 ## 特点
 
@@ -6,7 +6,9 @@
 
 ## 下载地址
 
-https://my.feishu.cn/file/HSSeb2sFXoKa0RxlxozcBFpvnmc?from=from_copylink
+请选择最新版本。
+
+https://my.feishu.cn/drive/folder/Q0FUf5KnLlQHJRdqyprck8YTnre
 
 
 
