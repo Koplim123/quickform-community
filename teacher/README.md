@@ -2,7 +2,7 @@
 
 ## 下载地址
 
-https://my.feishu.cn/drive/folder/Q0FUf5KnLlQHJRdqyprck8YTnre?from=from_copylink
+https://my.feishu.cn/drive/folder/Q0FUf5KnLlQHJRdqyprck8YTnre
 
 ## 功能演示
 
