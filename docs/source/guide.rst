@@ -4,4 +4,5 @@ QuickForm学习指南
    :maxdepth: 2
 
    guide/simple.md
+   guide/simple1.md
 
