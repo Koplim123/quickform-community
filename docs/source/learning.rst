@@ -1,8 +1,9 @@
-QuickForm学习指南
+学习资料
 =================================
 .. toctree::
    :maxdepth: 2
 
-   guide/simple.md
-   guide/simple1.md
+   learning/llm.md
+   guide/web.md
+   learning/vibe_coding.md
 
