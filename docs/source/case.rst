@@ -3,6 +3,8 @@ QuickForm学习指南
 .. toctree::
    :maxdepth: 2
 
-   guide/wsts.md
-   guide/wen.md
+   case/case01.md
+   case/case02.md
+   case/case03.md
+   case/wst.md
 
