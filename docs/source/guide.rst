@@ -5,4 +5,5 @@ QuickForm学习指南
 
    guide/stepbystep.md
    guide/principle.md
+   guide/get_apikey.md
 
