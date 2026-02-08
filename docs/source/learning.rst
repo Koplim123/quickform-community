@@ -4,6 +4,6 @@
    :maxdepth: 2
 
    learning/llm.md
-   guide/web.md
+   learning/web.md
    learning/vibe_coding.md
 
