@@ -19,7 +19,9 @@ https://gitee.com/wstlab/quickform
 
 ## 功能演示
 
-https://wzkjgz.site/quickform/
+新版本：https://quickform.cn
+
+旧版本：https://wzkjgz.site/quickform/
 
 ## 版本说明
 

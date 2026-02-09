@@ -8,7 +8,7 @@ QuickForm分为两个版本，其中教师版为开源软件，适用安装在�
 
 ### 校园版
 
-地址：www.quickform.cn
+演示地址：[https://quickform.cn](https://quickform.cn)
 
 项目合作联系：方建文：beginnerfjw@163.com，谢作如：8334180@qq.com
 
