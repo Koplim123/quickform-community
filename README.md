@@ -31,8 +31,9 @@ https://gitee.com/wstlab/quickform
 
 2.校园版（school）
 
-仅供项目合作学校免费使用。
+即当前网络上部署的版本，仅供项目合作学校免费使用。
 
+如何加入项目组：https://my.feishu.cn/docx/RMKndgzpGo7j5uxnfCmcJDRbnAS
 
 ## 维护人员
 
