@@ -14,6 +14,7 @@ QuickForm，努力打通AI赋能教育的“最后一公里”！
    about
    guide
    case
+   tutorial
    learning
 
 
