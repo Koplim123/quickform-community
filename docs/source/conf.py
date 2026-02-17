@@ -20,7 +20,7 @@ import datetime
 
 project = 'QuickForm'
 copyright = u'2025-{year} XEduPro.All Rights Reserved'.format(year=datetime.datetime.now().year)
-author = 'QuickForm'
+author = 'xiezuoru'
 
 
 # -- General configuration ---------------------------------------------------
