@@ -1,22 +1,58 @@
-# QuickForm版本更新记录
+# 版本说明与更新记录
 
-每一次版本升级，都来自我们对人工智能赋能教育的理解，来自我们对一线教师需求的回应。
+QuickForm的每一次版本升级，都来自我们对人工智能赋能教育的理解，来自我们对一线教师需求的回应。
 
 ## 版本说明
 
-QuickForm分为两个版本，其中教师版为开源软件，适用安装在普通教师自己的电脑上，供上课快速使用；校园版为免费软件，适合一个区域（学校或者县域）多人一起使用。
-
-### 校园版
-
-演示地址：[https://quickform.cn](https://quickform.cn)
-
-项目合作联系：方建文：beginnerfjw@163.com，谢作如：8334180@qq.com
+QuickForm分为教师版和校园版两个版本，基本功能一致，都可以无限制收集表单数据，核心区别在于校园版支持多用户，而教师版为单用户。
 
 ### 教师版
 
-具体版本变化以github和gitee上为准。
+QuickForm教师版为开源软件，直接下载使用即可。QuickForm支持任何可以运行Python的操作系统，对电脑配置要求很低。适合安装在教师的个人电脑上，包括笔记本电脑。
 
-  - GitHub地址：https://github.com/wstlab/quickform
-  - Gitee：https://gitee.com/wstlab/quickform
+特点：开源软件，可后期开发。
+
+QuickForm教师版的具体功能变化以github和gitee上为准。
+
+  - GitHub地址：[https://github.com/wstlab/quickform](https://github.com/wstlab/quickform）
+  - Gitee地址：[https://gitee.com/wstlab/quickform](https://gitee.com/wstlab/quickform）
+
+### 校园版
+
+QuickForm校园版可以安装在学校服务器上，供全校教师一起使用。对服务器操作系统没有特别要求，只要能运行Python即可。服务器具体配置需求与用户数量和访问频率有关。
+
+相对于教师版来说，QuickForm校园版不仅仅增加了用户管理功能，还提供了项目分享、交流之类的功能。
+
+特点：免费软件，定向开源（目前仅仅面向项目合作方开源）。
+
+QuickForm校园版演示地址：[https://quickform.cn](https://quickform.cn)
+
+加入项目合作，请联系：
+  - 方建文：beginnerfjw@163.com
+  - 谢作如：8334180@qq.com
+
+### 如何选择版本
+
+如果你仅仅为了试用一下QuickForm，或者某节公开课需要体现“AI赋能”这一亮点，那么直接使用我们已经部署好的QuickForm就好了，地址为[https://quickform.cn](https://quickform.cn)。
+
+如果你想要在日常课堂教学中都能使用QuickForm，最好在自己的电脑上部署一个QuickForm服务。下载QuickForm教师版，解压后就可以使用。这样可以确保网络访问稳定，数据安全。
+
+如果你希望学生在家里也能使用，即课外也能使用。那么你可以使用借助外网穿透技术，将自己的电脑Web服务映射到外网。当然，你也可以购买某个云服务器（如阿里云、腾讯云等），拥有自己的专用QuickForm服务。
+
+如果你是学校的领导（数字化建设方面），希望全校老师都能使用QuickForm，以此为抓手提高老师们的AI赋能教学能力，那么请联系我们。加入项目组后，部署QuickForm校园版供全校师生服务。
+
+不管你出于某种需求，我们都强烈建议你先注册[https://quickform.cn](https://quickform.cn)，先用最快，最简洁的方式用一次QuickForm，再做后续的选择。
 
 
+**注意事项：** 因为校园版面向多用户，需要在数据安全方面做更多考虑。在使用方面，教师版和校园版略有区别：教师版使用同一个API地址实现数据回收和反馈，而校园版的数据反馈地址比回收地址多了“/all”，是为了避免误操作引发的频繁数据读取而设计。
+
+
+## 更新记录
+
+2026.2，校园版上线，启用新域名（www.quickform.cn）。
+
+2026.1，教师版发布一键安装包。
+
+2025.12，分化为教师版和校园版，教师版发布。
+
+2025.11.1，发布Demo版本，随后线上部署。
