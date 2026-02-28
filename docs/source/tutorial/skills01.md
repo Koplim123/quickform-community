@@ -1,4 +1,4 @@
-# AI制作交互式网页（四）：交互式网页数据回收与分析
+# 编写扣子技能实现自动分析交互式网页数据
 
 **原创**：信息教与学  
 **时间**：2026年2月6日 22:16  
@@ -18,7 +18,7 @@
 
 **QuickForm** 就是专为这个场景打造的解决方案。今天这篇内容，我们就从 **"是什么、怎么用、怎么用得更省心"** 三个维度，把交互式网页的数据回收与分析讲透，让 AI 制作的网页从 "能用、好用" 升级为 "能沉淀数据、能指导教学"。
 
-![文章封面图](images/image_01.gif)
+![文章封面图](../images/skill01/image_01.gif)
 
 ---
 
@@ -61,14 +61,14 @@ QuickForm 是一个"**只管接收和存储数据**"的轻量级数据回收系�
 1. 注册并登录 QuickForm 公网平台  
    官网地址：https://wzkjgz.site/quickform/
 
-![公网快速使用说明](images/image_04.jpg)
+![公网快速使用说明](../images/skill01/image_04.jpg)
 
 2. 获取 QuickForm 接口 URL  
    创建一个数据回收任务，系统会自动生成专属的接口地址URL，例如：  
    https://wzkjgz.site/quickform/api/submit/xxx；
 
 ![获取接口URL步骤](images/image_06.jpg)
-![创建任务接口](images/image_07.jpg)
+![创建任务接口](../images/skill01/image_07.jpg)
 
 > 如果想要创建更多任务，可以在右上角"个人设置"中提交教师身份认证，通过后，可以创建无限个任务。
 
@@ -76,19 +76,19 @@ QuickForm 是一个"**只管接收和存储数据**"的轻量级数据回收系�
    在 AI 制作的交互式网页中，添加一段 JavaScript 提交代码，核心是调用 QuickForm 的 API，将采集到的数据以 JSON 格式提交；  
    这一环节可以参考平台提供的提示词由 AI代劳。
 
-![JavaScript提交代码](images/image_09.jpg)
+![JavaScript提交代码](../images/skill01/image_09.jpg)
 
 4. 测试数据提交  
    打开网页完成交互，提交数据后，在 QuickForm 后台查看是否成功接收。
 
-![测试数据提交界面](images/image_10.png)
+![测试数据提交界面](../images/skill01/image_10.png)
 
 5. 数据分析  
    平台支持数据导出，也可以参考平台提供的数据分析提示词生成数据分析报告。另外，由于直接访问接口地址即可查看所有提交数据，所以也可以借助这个数据来源生成实时数据分析大屏。
 
-![数据分析界面1](images/image_11.jpg)
-![数据分析界面2](images/image_12.jpg)
-![数据分析界面3](images/image_13.jpg)
+![数据分析界面1](../images/skill01/image_11.jpg)
+![数据分析界面2](../images/skill01/image_12.jpg)
+![数据分析界面3](../images/skill01/image_13.jpg)
 
 ---
 
@@ -125,7 +125,7 @@ https://my.feishu.cn/drive/folder/Q0FUf5KnLlQHJRdqyprck8YTnre
 
 Skills即技能，最近国内外都挺火的，和工作流相似又有所区别，详细见 [一文带你看懂，火爆全网的Skills到底是个啥。](https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647678672&idx=1&sn=c3510896d2de19b5c5ab6805c27182e5&scene=21#wechat_redirect)
 
-![Skills介绍封面](images/image_14.jpg)
+![Skills介绍封面](../images/skill01/image_14.jpg)
 
 这个 **Skill 的核心目标** 只有一个：
 
@@ -150,7 +150,7 @@ Skills即技能，最近国内外都挺火的，和工作流相似又有所区�
 
 这个 skill我已经上架在扣子的技能商店并且设置 **开源** 了，大家可以自行体验，或者复制到个人空间再优化改进。
 
-![Skill使用说明](images/image_15.jpg)
+![Skill使用说明](../images/skill01/image_15.jpg)
 
 1. 直接打开这个技能，点击使用  
    https://www.coze.cn/?skill_share_pid=7598218594635366446
@@ -163,7 +163,7 @@ Skills即技能，最近国内外都挺火的，和工作流相似又有所区�
 
 ## 案例分享
 
-![案例分享插图](images/image_16.png)
+![案例分享插图](../images/skill01/image_16.png)
 
 1. **《物联数据需采集》巩固练习题**  
    https://www.coze.cn/s/cVQC87LrgS4/
