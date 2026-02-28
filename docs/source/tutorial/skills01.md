@@ -59,13 +59,13 @@ QuickForm 是一个"**只管接收和存储数据**"的轻量级数据回收系�
 公网版无需搭建服务器，直接用现成的接口即可，步骤如下：
 
 1. 注册并登录 QuickForm 公网平台  
-   官网地址：https://wzkjgz.site/quickform/
+   官网地址：https://quickform.cn/
 
 ![公网快速使用说明](../images/skill01/image_04.jpg)
 
 2. 获取 QuickForm 接口 URL  
    创建一个数据回收任务，系统会自动生成专属的接口地址URL，例如：  
-   https://wzkjgz.site/quickform/api/submit/xxx；
+   https://quickform.cn/api/submit/xxx；
 
 ![获取接口URL步骤](images/image_06.jpg)
 ![创建任务接口](../images/skill01/image_07.jpg)
@@ -171,12 +171,12 @@ Skills即技能，最近国内外都挺火的，和工作流相似又有所区�
 2. **模拟直播网络搭建**  
    https://www.coze.cn/s/QsrxfJpz-8Y/
 
-![模拟直播网络搭建案例](images/image_03.jpg)
+![模拟直播网络搭建案例](../images/skill01/image_03.jpg)
 
 3. **MQTT通信机制模拟**  
    https://www.coze.cn/s/k19E3f3_U5c/
 
-![MQTT通信机制模拟案例](images/image_05.jpg)
+![MQTT通信机制模拟案例](../images/skill01/image_05.jpg)
 
 ---
 
