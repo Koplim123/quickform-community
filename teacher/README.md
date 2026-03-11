@@ -6,23 +6,27 @@ https://my.feishu.cn/drive/folder/Q0FUf5KnLlQHJRdqyprck8YTnre
 
 ## 功能演示
 
-https://wzkjgz.site/quickform/
+校园版：https://quickform.cn/
 
 同校园版比较，教师版适合在本地电脑（任何电脑）上运行。
 
 ## 如何本地部署
 
-感谢广西的伍老师写了一个教程。
-https://mp.weixin.qq.com/s/phkIxGv7In4M6ogfHOMq1w
+下载压缩包后，解压。
+
+Windows系统：运行QuickForm启动器.bat
+
+MacOS：运行“start.sh”。
+
+Linux：用Linux的都是高手，直接运行“app.py”吧。
 
 ## 默认密码
 
 内置了一个管理员账号：wst，密码：quickform
 
-运行“update_wst_password.py”，可以初始化密码。，运行后关闭即可。
-
-
 ## 版本说明
+
+V1.5，功能和界面和校园版保持一致，增加支持的大模型API，优化数据分析功能。
 
 V1.2，修改内置环境，增加项目链接，修改报错提示。
 

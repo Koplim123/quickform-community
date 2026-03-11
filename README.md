@@ -27,7 +27,9 @@ https://gitee.com/wstlab/quickform
 
 1.教师版（teacher）
 
-开源，最新版本为1.2。
+开源，最新版本为1.5。
+
+关于QuickForm的本地部署：https://quickform.readthedocs.io/zh-cn/latest/guide/deploy.html
 
 2.校园版（school）
 
@@ -41,9 +43,13 @@ QuickForm项目由温州科技高级中学和温州大学教育学院联合开�
 
 负责人：谢作如（温州科技高级中学）、方建文（温州大学）
 
-技术：林淼焱、陈恩慈……
+- 技术：林淼焱、陈恩慈……
+- 教研：董丹丹、林新跃……
 
-教研：董丹丹、林新跃……
+## 技术支持
+
+- 上海谕视科技
+- 上海熊星科技
 
 ## 开源协议
 
