@@ -12,6 +12,14 @@ https://my.feishu.cn/drive/folder/Q0FUf5KnLlQHJRdqyprck8YTnre
 
 ## 如何本地部署
 
+### 纯代码版
+
+需要自行安装Python环境，安装必要的库。推荐使用集成Python环境的工具，如mPython、Thonnny。
+
+mPython：https://mpython.cn/
+
+### 一键安装包
+
 下载压缩包后，解压。
 
 Windows系统：运行QuickForm启动器.bat
