@@ -34,3 +34,8 @@
 注意：要一键生成智能分析报告，首先得有大模型的APIKEY（API密钥）。具体请参考“大模型服务API密钥获取”。
 
 ![](../images/guide/start04.png)
+
+最后，看一个简单的介绍视频吧。
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116215053812928&bvid=BV1hsc6zHEoN&cid=36643342242&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
