@@ -8,9 +8,11 @@
 
 让更多教师用上QuickForm，首先需要将QuickForm部署在互联网上。QuickForm的官方网站支持大规模的用户，即校园版的QuickForm。
 
-目前我们已经申请了独立域名，购买了云服务器。经费来源是我和方建文博士的科研经费。实际上也花不了很多钱，目前核心付出是精力。
+目前我们已经申请了独立域名，购买了云服务器。经费来源是谢作如和方建文博士的科研经费。实际上也花不了很多钱，目前核心付出是精力。
 
-新地址：[https://quickform.cn](https://quickform.cn)
+项目介绍地址：[https://quickform.cc](https://quickform.cc)
+
+校园版功能演示地址：[https://quickform.cn](https://quickform.cn)
 
 我们计划将QuickForm接入各地的智慧教育平台。如果一切顺利，第一个接入的将会是上海的“三个助手”平台。
 
