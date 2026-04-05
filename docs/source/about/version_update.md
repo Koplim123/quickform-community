@@ -27,9 +27,11 @@ QuickForm校园版可以安装在学校服务器上，供全校教师一起使�
 
 QuickForm校园版演示地址：[https://quickform.cn](https://quickform.cn)
 
-加入项目合作，请联系：
+如果有意向加入项目合作，请先阅读协议，再联系方建文或者谢作如。联系方式如下：
   - 方建文：beginnerfjw@163.com
   - 谢作如：8334180@qq.com
+
+协议链接：https://mp.weixin.qq.com/s/JIJSxCsL-ImGNuS2UnoAZg
 
 ### 如何选择版本
 
