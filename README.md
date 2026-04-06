@@ -37,6 +37,10 @@ https://gitee.com/wstlab/quickform
 
 如何加入项目组：https://my.feishu.cn/docx/RMKndgzpGo7j5uxnfCmcJDRbnAS
 
+3.在线版（online）
+
+在线版为校园版的演示版本，增加了“限流”功能。
+
 ## 维护人员
 
 QuickForm项目由温州科技高级中学和温州大学教育学院联合开发与维护。
