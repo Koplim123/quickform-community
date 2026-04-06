@@ -104,9 +104,80 @@ Quickform支持使用同一个数据任务的API地址进行读写操作，即�
 
 2.可能是大模型的理解错误。我们发现deepseek特别会“胡思乱想”，“API地址”最好不要说成“服务器”，不然容易出错。
 
+3.可能是QuickForm的流量限制。因为频繁读取会极大影响服务器的性能，QuickForm在线版限制了一定时间内的读写频率。请记着写上“每隔10秒钟刷新一次”。在数据任务详情处可以看到具体的接口访问统计。
+
 ## 其他说明
+
+1.为什么在线版和教师版的获取数据API不一致？
+
+的确，在线版和校园版都需要加上“/all”才能看到所有数据，否则仅仅返回3条。但是，教师版不管是否加“/all”都返回全部数据。
 
 为什么要这样设计？其实就是为了省流量。我们担心老师们对API不熟悉，给大模型写指令的时候，万一忘了提醒“每隔多少时间刷新一次”，就是造成服务器不断刷新。不仅服务器性能受影响，也会浪费流量。所以直接在浏览器上访问数据任务的WebAPI，校园版返回的是最新3条数据。
 
+2.数据格式详解
+
+我们设计的数据格式非常简单，以JSON（JavaScript Object Notation，一种轻量级的数据交换格式）作为交换格式。返回一个对象，有“note”、“submissions”、“task_id”、“task_title”、“total_submissions”等5个字段。其中“submissions”的值为数组，数组内单条记录的值为对象，每一个对象，就是每一次提交收集的数据包。
+
+```json
+
+{
+  "note": "提示",
+  "submissions": [
+    {记录1},
+    {记录2}
+  ],
+  "task_id": "任务的API值",
+  "task_title": "任务名称",
+  "total_submissions": 记录数量，如2
+}
+
+```
+
+以下面一个科学调查的数据任务为例。
+
+```json
+
+{
+  "note": "This endpoint returns the 3 most recent submissions. Full list: https://quickform.cn/api/sg826h31vv/all",
+  "submissions": [
+    {
+      "age": 49,
+      "consent": "同意",
+      "gender": "女",
+      "health_status": "健康，无不适",
+      "measurement_date": "2026-04-06",
+      "measurement_site": "口腔",
+      "measurement_site_raw": "口腔",
+      "measurement_time": "11:08",
+      "pre_activities": [
+        "无"
+      ],
+      "resting_confirmation": "是",
+      "submitted_at": "2026-04-06 11:09:01",
+      "temperature_celsius": 37.4
+    },
+    {
+      "age": 51,
+      "consent": "同意",
+      "gender": "男",
+      "health_status": "健康，无不适",
+      "measurement_date": "2026-04-02",
+      "measurement_site": "腋下",
+      "measurement_site_raw": "腋下",
+      "measurement_time": "22:46",
+      "pre_activities": [
+        "无"
+      ],
+      "resting_confirmation": "是",
+      "submitted_at": "2026-04-02 22:50:21",
+      "temperature_celsius": 36.4
+    }
+  ],
+  "task_id": "sg826h31vv",
+  "task_title": "科学调查（体温）",
+  "total_submissions": 2
+}
+
+```
 
 
