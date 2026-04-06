@@ -10,6 +10,10 @@
 
 ![](../images/guide/dashboard01.jpg)
 
+山东德州的高老师（立羽老师）做了一个很清晰的教程，值得初学者参考使用。
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116352912327762&bvid=BV1pYSXBLEXy&cid=37268293989&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
 ## QuickForm原理解析
 
 Quickform支持使用同一个数据任务的API地址进行读写操作，即用POST方式写入数据，GET方式读取数据。我们可以把Quickform看成是一个数据U盘、云盘。
