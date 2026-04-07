@@ -8,7 +8,9 @@
 
 访问 QuickForm 平台（演示地址：[https://quickform.cn](https://quickform.cn)），注册账号后，在“数据任务”页面中点击“创建新任务”，系统将自动生成一个专属的API接口地址。该地址如同您的“数字收件箱”，所有学生提交的数据都会汇集于此。
 
-![](../images/guide/start01.png)
+![](../images/guide/start01-1.png)
+
+![](../images/guide/start01-2.png)
 
 ## 第二步：生成交互网页
 
@@ -31,7 +33,9 @@
 
 学生使用交互网页并提交数据后，您可以在 QuickForm 任务界面实时查看所有提交记录。系统支持逐条查看详情，也支持批量导出为 Excel 表格，便于后续统计与存档。
 
-![](../images/guide/start03.png)
+![](../images/guide/start03-1.png)
+
+
 
 
 ## 第四步：生成智能报告
