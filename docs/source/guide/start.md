@@ -31,11 +31,13 @@
 
 ## 第三步：收集与查看数据
 
-学生使用交互网页并提交数据后，您可以在 QuickForm 任务界面实时查看所有提交记录。系统支持逐条查看详情，也支持批量导出为 Excel 表格，便于后续统计与存档。
+你可以将生成的网页地址发给学生（豆包可以分享预览地址），也可以将网页上传到QuickForm的数据任务中，将得到一个访问地址。
 
 ![](../images/guide/start03-1.png)
 
+学生使用交互网页并提交数据后，您可以在 QuickForm 任务界面实时查看所有提交记录。系统支持逐条查看详情，也支持批量导出为 Excel 表格，便于后续统计与存档。
 
+![](../images/guide/start03-2.png)
 
 
 ## 第四步：生成智能报告
@@ -46,7 +48,7 @@
 
 ![](../images/guide/start04.png)
 
-最后，看一个简单的介绍视频吧。
+最后，看一个简单的介绍视频吧，点击视频可以全屏观看。
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116215053812928&bvid=BV1hsc6zHEoN&cid=36643342242&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
