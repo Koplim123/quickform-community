@@ -22,6 +22,8 @@ QuickForm文档地址：[https://quickform.readthedocs.io/](https://quickform.re
 
 QuickForm开源仓库：[https://gitee.com/wstlab/quickform](https://gitee.com/wstlab/quickform)
 
+QuickForm开源仓库：[https://github.com/wstlab/quickform](https://github.com/wstlab/quickform)
+
 ### 2.1 部署QuickForm教师版
 
 QuickForm教师版是一个开源软件，适用于每一位教师。老师们只要将QuickForm解压到本地电脑，然后运行bat文件即可，支持Windows、Linux、MacOS等系统。
@@ -31,7 +33,10 @@ QuickForm教师版是一个开源软件，适用于每一位教师。老师们�
       <source id="mp4" src="../images/guide/QuickForm_t_deploy.mp4" type="video/mp4">
 </videos>
 
-下载地址：[https://gitee.com/wstlab/quickform/tree/main/teacher](https://gitee.com/wstlab/quickform/tree/main/teacher)
+下载地址1：[https://gitee.com/wstlab/quickform/tree/main/teacher](https://gitee.com/wstlab/quickform/tree/main/teacher)
+
+下载地址2：[https://github.com/wstlab/quickform/tree/main/teacher](https://github.com/wstlab/quickform/tree/main/teacher)
+
 
 启动QuickForm后，你的电脑就成为一台Web服务器，通过局域网地址即可访问。当然，你也可以通过一些网络软件，将本地端口映射到公网上。或者可以申请一个云服务器部署，但前提是要确保安全。
 
