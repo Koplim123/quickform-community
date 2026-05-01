@@ -24,7 +24,7 @@ https://gitee.com/wstlab/quickform
 
 ## 功能演示
 
-https://quickform.cn
+QuickForm在线版：https://quickform.cn
 
 ## 版本说明
 

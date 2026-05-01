@@ -8,7 +8,7 @@ QuickForm校园版是一个免费软件，仅面向项目成员开源。和教�
 
 ## 功能演示
 
-https://wzkjgz.site/quickform/
+http://www.wzkjgz.site/
 
 ## 版本说明
 
