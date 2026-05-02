@@ -9,3 +9,4 @@
    about/team.md
    about/version_update.md
    about/license.md
+   about/school_list.md
