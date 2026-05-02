@@ -67,8 +67,7 @@ https://chat.deepseek.com/share/czo10vn4sz77n5vzwc
 
 问题描述：如果用普通的大模型做网页，要将媒体上传到网络上，链接地址。如将视频传到B站上。如果你的网页比较复杂，强烈推荐Trae之类的工具。
 
-理由：
-
+理由：没有什么比免费服务更香了，QuickForm的视频也都放在B站上。
 
 
 ### 4-2 多文件网页的部署
@@ -84,6 +83,10 @@ https://chat.deepseek.com/share/czo10vn4sz77n5vzwc
 推荐2：devfile
 
 网址：https://devfile.cn/
+
+推荐3：EdgeOne Pages
+
+网址：https://console.cloud.tencent.com/edgeone
 
 ## 各种疑难问题
 
