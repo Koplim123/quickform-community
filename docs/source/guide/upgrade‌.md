@@ -10,7 +10,7 @@
 
 ![](../images/guide/dashboard01.jpg)
 
-山东德州的高老师（立羽老师）做了一个很清晰的教程，值得初学者参考使用。
+山东德州的高老师（立羽老师）做了一个很清晰的教程，值得初学者参考使用。但需要注意的是，大模型的能力变化很大，完全按照视频可能会不成功。
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116352912327762&bvid=BV1pYSXBLEXy&cid=37268293989&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
@@ -79,7 +79,9 @@ A类大模型严格说是编程智能体，如扣子编程、Trae等。面对A�
 
 ![](../images/guide/dashboard-ds.png)
 
-数据格式来自哪里？用浏览器打开“https://www.quickform.cn/api/o30myztdie/all”，然后复制出来即可。或者另存为txt文件，上传给大模型也行。
+数据格式来自哪里？用浏览器打开“https://www.quickform.cn/api/o30myztdie/all”，然后复制出来即可。或者另存为txt文件，上传给大模型也行。在新版本（2026年4月30日更新）中，QuickForm在“数据分析”中提供了“数据大屏”的推荐提示词，成功率很高。
+
+![](../images/guide/dashboard-prompt.png)
 
 ### 三个关键技巧
 
