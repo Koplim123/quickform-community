@@ -78,13 +78,21 @@ https://chat.deepseek.com/share/czo10vn4sz77n5vzwc
 
 推荐1：热铁盒
 
-网址：https://mp.weixin.qq.com/s/vE312S_94xGvd3ZdBP9gWg
+网址：https://host-intro.retiehe.com/
+
+教程和说明：https://mp.weixin.qq.com/s/vE312S_94xGvd3ZdBP9gWg
 
 推荐2：devfile
 
 网址：https://devfile.cn/
 
-推荐3：EdgeOne Pages
+![](../images/guide/tech01.png)
+
+推荐3：Yunmind
+
+网址：https://www.yunmind.cn/
+
+推荐4：EdgeOne Pages
 
 网址：https://console.cloud.tencent.com/edgeone
 
