@@ -30,14 +30,11 @@ QuickForm开源仓库：[https://github.com/wstlab/quickform](https://github.com
 
 QuickForm教师版是一个开源软件，适用于每一位教师。老师们只要将QuickForm解压到本地电脑，然后运行bat文件即可，支持Windows、Linux、MacOS等系统。
 
-<!-- mp4格式 -->
-<video id="video" controls="" preload="none" poster="封面">
-      <source id="mp4" src="../images/guide/QuickForm_t_deploy.mp4" type="video/mp4">
-</videos>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116044513413183&bvid=BV1VsFmzrEbZ&cid=35953181764&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
 启动QuickForm后，你的电脑就成为一台Web服务器，通过局域网地址即可访问。当然，你也可以通过一些网络软件，将本地端口映射到公网上。或者可以申请一个云服务器部署，但前提是要确保安全。
 
-**第一步、下载**
+**第一步、下载软件**
 
 访问QuickForm的开源仓库，即可在“teacher（教师版）”中找到下载链接。
 
@@ -45,13 +42,17 @@ QuickForm教师版是一个开源软件，适用于每一位教师。老师们�
 
 下载地址2：[https://github.com/wstlab/quickform/](https://github.com/wstlab/quickform/)
 
-**第二步、安装**
+**第二步、安装服务**
 
 对于动手能力较强，或者有编程技术的老师，推荐下载“纯代码”版，根据readme文件中的介绍，把库装好，运行“app.py”文件即可。
 
 方式1：使用一键安装包
 
-也可以下载“一键安装包”或者“一键运行”版本。这些版本已经内置了Python，直接运行“QuickForm启动器.bat“即可。
+也可以下载“一键安装包”或者“安装版”。这些版本已经内置了Python，直接运行“QuickForm启动器.bat“即可。
+
+QuickForm教师版2.0教程：[https://mp.weixin.qq.com/s/31O2rwELzT5xydc_HBuSmA](https://mp.weixin.qq.com/s/31O2rwELzT5xydc_HBuSmA)
+
+**注：感谢南宫市红庙中心学校的陈亮老师，为QuickForm教师版2.0做了安装版。**
 
 方式2：借助龙虾启动“App.py”
 
