@@ -20,6 +20,10 @@ mPython：https://mpython.cn/
 
 中鸣提供的Thonny+QuickForm：https://ai.zmrobo.com/libs
 
+### 安装版
+
+QuickForm教师版从2.0开始，拥有了正式的安装版本。感谢南宫市红庙中心学校的陈亮老师的付出。
+
 ### 一键安装包
 
 下载压缩包后，解压，已经内置了Python环境。
