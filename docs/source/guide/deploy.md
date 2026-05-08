@@ -35,17 +35,29 @@ QuickForm教师版是一个开源软件，适用于每一位教师。老师们�
       <source id="mp4" src="../images/guide/QuickForm_t_deploy.mp4" type="video/mp4">
 </videos>
 
+启动QuickForm后，你的电脑就成为一台Web服务器，通过局域网地址即可访问。当然，你也可以通过一些网络软件，将本地端口映射到公网上。或者可以申请一个云服务器部署，但前提是要确保安全。
+
+**第一步、下载**
+
 访问QuickForm的开源仓库，即可在“teacher（教师版）”中找到下载链接。
 
 下载地址1：[https://gitee.com/wstlab/quickform/](https://gitee.com/wstlab/quickform/)
 
 下载地址2：[https://github.com/wstlab/quickform/](https://github.com/wstlab/quickform/)
 
-对于动手能力较强，或者有编程技术的老师，推荐下载“纯代码”版，根据readme文件中的介绍，把库装好，运行“app.py”文件即可。也可以下载“一键安装包”或者“一键运行”版本。这些版本已经内置了Python，直接运行“QuickForm启动器.bat“即可。
+**第二步、安装**
 
-启动QuickForm后，你的电脑就成为一台Web服务器，通过局域网地址即可访问。当然，你也可以通过一些网络软件，将本地端口映射到公网上。或者可以申请一个云服务器部署，但前提是要确保安全。
+对于动手能力较强，或者有编程技术的老师，推荐下载“纯代码”版，根据readme文件中的介绍，把库装好，运行“app.py”文件即可。
 
-**注意：更多安装QuickForm的方法**
+方式1：使用一键安装包
+
+也可以下载“一键安装包”或者“一键运行”版本。这些版本已经内置了Python，直接运行“QuickForm启动器.bat“即可。
+
+方式2：借助龙虾启动“App.py”
+
+如果你的电脑运行不了一键安装包或者安装文件，强烈推荐用龙虾类工具（如Qclaw）来启动“App.py”。龙虾会分析代码，自主部署软件。
+
+方式3：安装QuickForm的更多方法
 
 还有很多简单的方式使用Quickfom，如下载中鸣版Thonny、mPython之类内置QuickForm的Python编辑器。
 
