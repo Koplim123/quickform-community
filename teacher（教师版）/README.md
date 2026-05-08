@@ -12,7 +12,7 @@ https://my.feishu.cn/drive/folder/Q0FUf5KnLlQHJRdqyprck8YTnre
 
 需要自行安装Python环境，安装必要的库。
 
-推荐方案1：使用龙虾累工具，如Qclaw安装环境。
+推荐方案1：使用龙虾类工具，如Qclaw来安装环境，要求启动“app.py”即可。
 
 推荐方法2：使用集成Python环境的工具，如mPython、Thonnny。
 
