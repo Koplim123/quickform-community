@@ -22,9 +22,11 @@ QuickForm采用Python语言编写，支持多操作系统，能快速部署到�
 
 QuickForm文档地址：[https://quickform.readthedocs.io/](https://quickform.readthedocs.io/)
 
-QuickForm开源仓库：[https://gitee.com/wstlab/quickform](https://gitee.com/wstlab/quickform)
+开源仓库1：[https://gitee.com/wstlab/quickform](https://gitee.com/wstlab/quickform)
 
-QuickForm开源仓库：[https://github.com/wstlab/quickform](https://github.com/wstlab/quickform)
+开源仓库2：[https://github.com/wstlab/quickform](https://github.com/wstlab/quickform)
+
+飞书下载：[https://my.feishu.cn/drive/folder/Q0FUf5KnLlQHJRdqyprck8YTnre](https://my.feishu.cn/drive/folder/Q0FUf5KnLlQHJRdqyprck8YTnre)
 
 ### 2.1 部署QuickForm教师版
 
