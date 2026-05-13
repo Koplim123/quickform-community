@@ -22,12 +22,6 @@ QuickForm采用Python语言编写，支持多操作系统，能快速部署到�
 
 QuickForm文档地址：[https://quickform.readthedocs.io/](https://quickform.readthedocs.io/)
 
-开源仓库1：[https://gitee.com/wstlab/quickform](https://gitee.com/wstlab/quickform)
-
-开源仓库2：[https://github.com/wstlab/quickform](https://github.com/wstlab/quickform)
-
-飞书下载：[https://my.feishu.cn/drive/folder/Q0FUf5KnLlQHJRdqyprck8YTnre](https://my.feishu.cn/drive/folder/Q0FUf5KnLlQHJRdqyprck8YTnre)
-
 ### 2.1 部署QuickForm教师版
 
 QuickForm教师版是一个开源软件，适用于每一位教师。老师们只要将QuickForm解压到本地电脑，然后运行bat文件即可，支持Windows、Linux、MacOS等系统。
@@ -40,9 +34,11 @@ QuickForm教师版是一个开源软件，适用于每一位教师。老师们�
 
 访问QuickForm的开源仓库，即可在“teacher（教师版）”中找到下载链接。
 
-下载地址1：[https://gitee.com/wstlab/quickform/](https://gitee.com/wstlab/quickform/)
+开源仓库1：[https://gitee.com/wstlab/quickform](https://gitee.com/wstlab/quickform)
 
-下载地址2：[https://github.com/wstlab/quickform/](https://github.com/wstlab/quickform/)
+开源仓库2：[https://github.com/wstlab/quickform](https://github.com/wstlab/quickform)
+
+飞书下载：[https://my.feishu.cn/drive/folder/Q0FUf5KnLlQHJRdqyprck8YTnre](https://my.feishu.cn/drive/folder/Q0FUf5KnLlQHJRdqyprck8YTnre)
 
 **第二步、安装服务**
 
