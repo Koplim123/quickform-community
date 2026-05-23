@@ -449,21 +449,21 @@
     <!-- 导航栏 -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="{{ url_for('index') }}">{{ get_app_name() }}</a>
+            <a class="navbar-brand" href="{{ url_for('main.index') }}">{{ get_app_name() }}</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="切换导航">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('index') }}"><i class="bi bi-house-door"></i> 首页</a>
+                        <a class="nav-link" href="{{ url_for('main.index') }}"><i class="bi bi-house-door"></i> 首页</a>
                     </li>
                     {% if current_user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('dashboard') }}"><i class="bi bi-database"></i> 数据任务</a>
+                        <a class="nav-link" href="{{ url_for('main.dashboard') }}"><i class="bi bi-database"></i> 数据任务</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('import_task') }}"><i class="bi bi-plus-circle"></i> 导入任务</a>
+                        <a class="nav-link" href="{{ url_for('import_task.import_task') }}"><i class="bi bi-plus-circle"></i> 导入任务</a>
                     </li>
                     {% endif %}
                     <li class="nav-item">
@@ -477,14 +477,14 @@
                             {{ current_user.username }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{ url_for('profile') }}"><i class="bi bi-person"></i> 设置</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('main.profile') }}"><i class="bi bi-person"></i> 设置</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ url_for('logout') }}"><i class="bi bi-box-arrow-right"></i> 退出登录</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('auth.logout') }}"><i class="bi bi-box-arrow-right"></i> 退出登录</a></li>
                         </ul>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('login') }}"><i class="bi bi-box-arrow-in-right"></i> 登录</a>
+                        <a class="nav-link" href="{{ url_for('auth.login') }}"><i class="bi bi-box-arrow-in-right"></i> 登录</a>
                     </li>
                     {% endif %}
                 </ul>

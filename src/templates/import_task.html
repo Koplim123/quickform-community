@@ -52,7 +52,7 @@
     <div style="width: 90%; max-width: 500px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; border-radius: 10px; padding: 20px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);">
         <h5 id="fileImportModalLabel" style="margin-bottom: 15px; font-weight: 600; color: #111827;">从文件导入任务</h5>
         <p style="color: #6b7280; font-size: 0.9rem; margin-bottom: 15px;">请上传从quickform.cn中导出的输入任务文件，压缩包格式。</p>
-        <form method="POST" action="{{ url_for('import_task_from_file') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ url_for('import_task.import_task_from_file') }}" enctype="multipart/form-data">
             <div class="mb-3">
                 <input type="file" class="form-control" name="task_file" accept=".zip,.tar,.tar.gz,.tgz" required style="border-radius: 8px; border: 1px solid #e5e7eb; padding: 0.75rem 1rem;">
             </div>
@@ -89,7 +89,7 @@
                                 <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ task.task_intro or task.description or '无' }}</td>
                                 <td>{{ task.apiid }}</td>
                                 <td>
-                                    <a href="{{ url_for('import_task_action', apiid=task.apiid, task_name=task.task_name or task.title or task.name) }}" class="btn" style="background-color: #2563eb; color: white; font-weight: 500; border-radius: 8px; padding: 0.5rem 1rem; transition: all 0.3s ease; display: inline-block; white-space: nowrap;">
+                                    <a href="{{ url_for('import_task.import_task_action', apiid=task.apiid, task_name=task.task_name or task.title or task.name) }}" class="btn" style="background-color: #2563eb; color: white; font-weight: 500; border-radius: 8px; padding: 0.5rem 1rem; transition: all 0.3s ease; display: inline-block; white-space: nowrap;">
                                         导入
                                     </a>
                                 </td>
@@ -116,7 +116,7 @@ function closeImportModal() {
 function submitTaskUrl() {
     var url = document.getElementById('taskUrl').value;
     if (url) {
-        window.location.href = '{{ url_for("import_task_by_url") }}?url=' + encodeURIComponent(url);
+        window.location.href = '{{ url_for("import_task.import_task_by_url") }}?url=' + encodeURIComponent(url);
     }
 }
 function showFileImportModal() {
@@ -144,7 +144,7 @@ async function fetchTasks() {
                 errorDiv.style.display = 'block';
                 return;
             }
-            window.location.href = '{{ url_for("import_task") }}?tasks=' + encodeURIComponent(JSON.stringify(tasks));
+            window.location.href = '{{ url_for("import_task.import_task") }}?tasks=' + encodeURIComponent(JSON.stringify(tasks));
         } else {
             errorDiv.textContent = result.message;
             errorDiv.style.display = 'block';

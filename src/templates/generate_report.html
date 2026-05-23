@@ -139,7 +139,7 @@
                         <h5><i class="bi bi-exclamation-circle"></i> 生成报告失败</h5>
                         <p>{{ error }}</p>
                         {% if ai_config_error %}
-                            <a href="{{ url_for('config') }}" class="btn btn-primary" target="_parent">前往配置页面</a>
+                            <a href="{{ url_for('main.profile') }}" class="btn btn-primary" target="_parent">前往配置页面</a>
                         {% endif %}
                         <button onclick="window.close()" class="btn btn-secondary">关闭窗口</button>
                     </div>
@@ -155,10 +155,10 @@
                     </div>
                     
                     <div class="mt-4">
-                        <a href="{{ url_for('download_report', task_id=task.id) }}" class="btn btn-success me-2">
+                        <a href="{{ url_for('analysis.download_report', task_id=task.id) }}" class="btn btn-success me-2">
                             <i class="bi bi-download"></i> 下载分析报告
                         </a>
-                        <a href="{{ url_for('smart_analyze', task_id=task.id) }}" class="btn btn-primary">
+                        <a href="{{ url_for('analysis.smart_analyze', task_id=task.id) }}" class="btn btn-primary">
                             <i class="bi bi-check-circle"></i> 完成并返回
                         </a>
                     </div>

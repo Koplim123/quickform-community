@@ -8,26 +8,26 @@
         <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
             <h2 class="mb-0">{{ task.title }}</h2>
             <div class="d-flex flex-wrap gap-2 align-items-center">
-                <a href="{{ url_for('export_data', task_id=task.id) }}" class="btn" style="background-color: #16a34a; color: white; font-weight: 500; border-radius: 8px; padding: 0.75rem 1.5rem; transition: all 0.3s ease;">
+                <a href="{{ url_for('export.export_data', task_id=task.id) }}" class="btn" style="background-color: #16a34a; color: white; font-weight: 500; border-radius: 8px; padding: 0.75rem 1.5rem; transition: all 0.3s ease;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
                         <path d="M8 4a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0v-8A.5.5 0 0 1 8 4z"/>
                         <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM1.5 8a6.5 6.5 0 1 1 13 0 6.5 6.5 0 0 1-13 0z"/>
                     </svg>
                     导出数据
                 </a>
-                <a href="{{ url_for('smart_analyze', task_id=task.id) }}" class="btn" style="background-color: #3b82f6; color: white; font-weight: 500; border-radius: 8px; padding: 0.75rem 1.5rem; transition: all 0.3s ease;">
+                <a href="{{ url_for('analysis.smart_analyze', task_id=task.id) }}" class="btn" style="background-color: #3b82f6; color: white; font-weight: 500; border-radius: 8px; padding: 0.75rem 1.5rem; transition: all 0.3s ease;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart2" viewBox="0 0 16 16">
                         <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3zm5 2v8h2V5H6zm4 0v8h2V5h-2zm4 0v8h2V5h-2z"/>
                     </svg>
                     数据分析
                 </a>
-                <a href="{{ url_for('edit_task', task_id=task.id) }}" class="btn" style="background-color: #2563eb; color: white; font-weight: 500; border-radius: 8px; padding: 0.75rem 1.5rem; transition: all 0.3s ease;">
+                <a href="{{ url_for('task.edit_task', task_id=task.id) }}" class="btn" style="background-color: #2563eb; color: white; font-weight: 500; border-radius: 8px; padding: 0.75rem 1.5rem; transition: all 0.3s ease;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                         <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
                     </svg>
                     编辑任务
                 </a>
-                <a href="{{ url_for('dashboard') }}" class="btn" style="background-color: #6b7280; color: white; font-weight: 500; border-radius: 8px; padding: 0.75rem 1.5rem; transition: all 0.3s ease;">
+                <a href="{{ url_for('main.dashboard') }}" class="btn" style="background-color: #6b7280; color: white; font-weight: 500; border-radius: 8px; padding: 0.75rem 1.5rem; transition: all 0.3s ease;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                         <path d="M5.854 7.854a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708l-2 2a.5.5 0 0 0 0 .708zm-2.5 0a.5.5 0 0 1 0-.708l2-2a.5.5 0 0 1 .708.708L5.56 7.5H14a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H5.56l1.293 1.293a.5.5 0 0 1-.708.708l-2-2z"/>
                     </svg>
@@ -142,7 +142,7 @@
             <div class="card-header" style="background-color: #2563eb; color: white; font-weight: 600; border-bottom: none; padding: 1rem 1.5rem; border-radius: 10px 10px 0 0 !important;">
                 <div class="d-flex justify-content-between align-items-center">
                     <h5 class="mb-0" style="color: white; font-weight: 600;">提交数据列表</h5>
-                    <a href="{{ url_for('task_data_view', task_id=task.id) }}" style="color: white; text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 4px;"><path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/><path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/></svg>查看实时数据</a>
+                    <a href="{{ url_for('task.task_data_view', task_id=task.id) }}" style="color: white; text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 4px;"><path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/><path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/></svg>查看实时数据</a>
                 </div>
             </div>
             <div class="card-body" style="padding: 2rem;">
@@ -174,7 +174,7 @@
                                     </button>
                                 </td>
                                 <td>
-                                    <form action="{{ url_for('delete_submission', submission_id=sub.id) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete();">
+                                    <form action="{{ url_for('submission.delete_submission', submission_id=sub.id) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete();">
                                         <button type="submit" class="btn" style="background-color: #ef4444; color: white; font-weight: 500; border-radius: 8px; padding: 0.5rem 1rem; transition: all 0.3s ease;">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
@@ -218,7 +218,7 @@
                         批量删除选中项
                     </button>
                     
-                    <form id="bulkDeleteForm" action="{{ url_for('delete_multiple_submissions', task_id=task.id) }}" method="POST" style="display:none;">
+                    <form id="bulkDeleteForm" action="{{ url_for('submission.delete_multiple_submissions', task_id=task.id) }}" method="POST" style="display:none;">
                         <!-- 表单内容将通过JavaScript动态填充 -->
                     </form>
                 </div>

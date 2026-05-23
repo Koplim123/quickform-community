@@ -55,7 +55,7 @@
                 <div class="tab-content">
                     <!-- AI配置标签页 -->
                     <div class="tab-pane fade show active" id="config">
-                        <form method="POST" action="{{ url_for('profile') }}">
+                        <form method="POST" action="{{ url_for('main.profile') }}">
                             <input type="hidden" name="active_tab" value="config">
                             <input type="hidden" name="update_config" value="1">
                             
@@ -151,7 +151,7 @@
                     
                     <!-- QF数据互联标签页 -->
                     <div class="tab-pane fade" id="qf">
-                        <form method="POST" action="{{ url_for('profile') }}" id="qfForm">
+                        <form method="POST" action="{{ url_for('main.profile') }}" id="qfForm">
                             <input type="hidden" name="active_tab" value="qf">
                             <input type="hidden" name="update_qf_config" value="1">
                             
@@ -180,7 +180,7 @@
                         <div class="card mb-4" style="border: 1px solid #e5e7eb; border-radius: 8px;">
                             <div class="card-body" style="padding: 1.5rem;">
                                 <h6 style="font-weight: 600; color: #111827; margin-bottom: 1rem;">修改用户名</h6>
-                                <form method="POST" action="{{ url_for('profile') }}">
+                                <form method="POST" action="{{ url_for('main.profile') }}">
                                     <input type="hidden" name="active_tab" value="password">
                                     <input type="hidden" name="change_username" value="1">
                                     <div class="form-group">
@@ -195,7 +195,7 @@
                         <div class="card" style="border: 1px solid #e5e7eb; border-radius: 8px;">
                             <div class="card-body" style="padding: 1.5rem;">
                                 <h6 style="font-weight: 600; color: #111827; margin-bottom: 1rem;">修改密码</h6>
-                                <form method="POST" action="{{ url_for('profile') }}">
+                                <form method="POST" action="{{ url_for('main.profile') }}">
                                     <input type="hidden" name="active_tab" value="password">
                                     <input type="hidden" name="change_password" value="1">
                                     <div class="form-group">

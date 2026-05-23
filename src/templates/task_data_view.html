@@ -10,7 +10,7 @@
             <h4 class="mb-0">提交数据 - {{ task.title }}</h4>
             <div class="d-flex align-items-center gap-2" style="flex-wrap: wrap;">
                 <span class="badge" style="background-color: #9ca3af; color: white;">每 30 秒自动刷新</span>
-                <a href="{{ url_for('task_detail', task_id=task.id) }}" class="btn" style="background-color: #f3f4f6; color: #374151; font-weight: 500; border-radius: 8px; padding: 0.5rem 1rem; transition: all 0.3s ease;">返回任务详情</a>
+                <a href="{{ url_for('task.task_detail', task_id=task.id) }}" class="btn" style="background-color: #f3f4f6; color: #374151; font-weight: 500; border-radius: 8px; padding: 0.5rem 1rem; transition: all 0.3s ease;">返回任务详情</a>
             </div>
         </div>
         <div class="card border-0 shadow-sm" style="border-radius: 10px; overflow: hidden;">
@@ -54,11 +54,11 @@
                 <nav aria-label="分页" class="mt-4">
                     <ul class="pagination justify-content-center" style="gap: 5px;">
                         <li class="page-item {% if pagination.page <= 1 %}disabled{% endif %}">
-                            <a class="page-link" href="{{ url_for('task_data_view', task_id=task.id, page=pagination.page - 1, per_page=pagination.per_page) }}" style="background-color: #f3f4f6; color: #374151; border-radius: 8px; padding: 0.5rem 1rem; transition: all 0.3s ease;">&laquo; 上一页</a>
+                            <a class="page-link" href="{{ url_for('task.task_data_view', task_id=task.id, page=pagination.page - 1, per_page=pagination.per_page) }}" style="background-color: #f3f4f6; color: #374151; border-radius: 8px; padding: 0.5rem 1rem; transition: all 0.3s ease;">&laquo; 上一页</a>
                         </li>
                         <li class="page-item disabled"><span class="page-link" style="background-color: #e5e7eb; color: #6b7280; border-radius: 8px; padding: 0.5rem 1rem;">第 {{ pagination.page }} / {{ pagination.pages }} 页</span></li>
                         <li class="page-item {% if pagination.page >= pagination.pages %}disabled{% endif %}">
-                            <a class="page-link" href="{{ url_for('task_data_view', task_id=task.id, page=pagination.page + 1, per_page=pagination.per_page) }}" style="background-color: #f3f4f6; color: #374151; border-radius: 8px; padding: 0.5rem 1rem; transition: all 0.3s ease;">下一页 &raquo;</a>
+                            <a class="page-link" href="{{ url_for('task.task_data_view', task_id=task.id, page=pagination.page + 1, per_page=pagination.per_page) }}" style="background-color: #f3f4f6; color: #374151; border-radius: 8px; padding: 0.5rem 1rem; transition: all 0.3s ease;">下一页 &raquo;</a>
                         </li>
                     </ul>
                 </nav>
@@ -83,7 +83,7 @@
 <script>
 function deleteSingleData(subId) {
     if (!confirm('确定要删除这条提交记录吗？')) return;
-    fetch("{{ url_for('delete_submission', submission_id=0) }}".replace('0', subId) + "?_=" + Date.now(), {
+    fetch("{{ url_for('submission.delete_submission', submission_id=0) }}".replace('0', subId) + "?_=" + Date.now(), {
         method: 'GET',
         headers: { 'X-Requested-With': 'XMLHttpRequest' },
         cache: 'no-store'
@@ -97,7 +97,7 @@ function deleteSingleData(subId) {
 }
 function deleteAllData() {
     if (!confirm('确定要清空该任务的全部提交数据吗？此操作不可恢复。')) return;
-    fetch("{{ url_for('clear_all_submissions', task_id=task.id) }}?_=" + Date.now(), {
+    fetch("{{ url_for('submission.clear_all_submissions', task_id=task.id) }}?_=" + Date.now(), {
         method: 'GET',
         headers: { 'X-Requested-With': 'XMLHttpRequest' },
         cache: 'no-store'

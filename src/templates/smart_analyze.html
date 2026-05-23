@@ -136,7 +136,7 @@
     <div class="col-lg-10">
         <!-- 返回按钮 -->
         <div class="mb-3 d-flex justify-content-end">
-            <a href="{{ url_for('task_detail', task_id=task.id) }}" class="btn btn-secondary">
+            <a href="{{ url_for('task.task_detail', task_id=task.id) }}" class="btn btn-secondary">
                 <i class="bi bi-arrow-left"></i> 返回任务详情
             </a>
         </div>
@@ -152,7 +152,7 @@
                     <div class="alert alert-danger">
                         <h5><i class="bi bi-exclamation-circle"></i> 错误</h5>
                         <p>{{ error }}</p>
-                        <a href="{{ url_for('profile') }}" class="btn btn-primary">前往配置页面</a>
+                        <a href="{{ url_for('main.profile') }}" class="btn btn-primary">前往配置页面</a>
                     </div>
                 {% else %}
                     <!-- 数据统计 -->
@@ -183,10 +183,10 @@
                             <div>
                                 <h6 class="mb-2" style="font-weight: 600;">手动分析数据</h6>
                                 <p class="mb-2 text-muted">将回收的数据导出为CSV或者JSON格式，使用你熟悉的AI工具（deepseek、豆包、扣子编程等）进行分析。</p>
-                                <a href="{{ url_for('export_data', task_id=task.id) }}" class="btn btn-outline-primary btn-sm me-2">
+                                <a href="{{ url_for('export.export_data', task_id=task.id) }}" class="btn btn-outline-primary btn-sm me-2">
                                     <i class="bi bi-download"></i> 导出CSV格式数据
                                 </a>
-                                <a href="{{ url_for('export_json', task_id=task.id) }}" class="btn btn-outline-secondary btn-sm">
+                                <a href="{{ url_for('export.export_json', task_id=task.id) }}" class="btn btn-outline-secondary btn-sm">
                                     <i class="bi bi-download"></i> 导出JSON格式数据
                                 </a>
                             </div>
@@ -204,7 +204,7 @@
                                 <div class="apikey-alert mb-3">
                                     <i class="bi bi-exclamation-triangle-fill" style="color: #f59e0b;"></i>
                                     <span style="color: #92400e;">你还没有填写APIKEY，</span>
-                                    <a href="{{ url_for('profile') }}" style="color: #2563eb; font-weight: 500;">点击这里填写</a>
+                                    <a href="{{ url_for('main.profile') }}" style="color: #2563eb; font-weight: 500;">点击这里填写</a>
                                 </div>
                                 {% endif %}
 
@@ -215,7 +215,7 @@
                                 </div>
 
                                 <!-- 开始分析按钮 -->
-                                <form id="promptForm" action="{{ url_for('generate_report', task_id=task.id) }}" method="POST" target="_blank">
+                                <form id="promptForm" action="{{ url_for('analysis.generate_report', task_id=task.id) }}" method="POST" target="_blank">
                                     <input type="hidden" name="custom_prompt" value="{{ preview_prompt }}">
                                     <button type="submit" class="btn btn-analyze w-100" {% if submission_count == 0 %}disabled{% endif %}>
                                         <i class="bi bi-robot"></i> 
@@ -240,7 +240,7 @@
                                                 {% endif %}
                                             </div>
                                         </div>
-                                        <a href="{{ url_for('download_report', task_id=task.id) }}" class="btn btn-outline-primary btn-sm" style="white-space: nowrap;">
+                                        <a href="{{ url_for('analysis.download_report', task_id=task.id) }}" class="btn btn-outline-primary btn-sm" style="white-space: nowrap;">
                                             <i class="bi bi-download"></i> 下载报告
                                         </a>
                                     </div>

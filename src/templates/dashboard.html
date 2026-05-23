@@ -7,7 +7,7 @@
     <div class="col-md-12">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="mb-0" style="color: #111827; font-weight: 700;">我的数据任务</h2>
-            <a href="{{ url_for('create_task') }}" class="btn btn-primary" style="font-weight: 500;">
+            <a href="{{ url_for('task.create_task') }}" class="btn btn-primary" style="font-weight: 500;">
                 创建新任务
             </a>
         </div>
@@ -17,7 +17,7 @@
             {% for task in tasks %}
             <div class="col-md-4 col-sm-6">
                 <div class="card h-100">
-                    <a href="{{ url_for('task_detail', task_id=task.id) }}" class="text-decoration-none">
+                    <a href="{{ url_for('task.task_detail', task_id=task.id) }}" class="text-decoration-none">
                         <div class="card-header" style="padding-bottom: 0.75rem;">
                             <h5 class="card-title mb-2" style="color: white; font-weight: 600;">{{ task.title }}</h5>
                             <div class="d-flex gap-2 flex-wrap">
@@ -61,10 +61,10 @@
                     </a>
                     <div class="card-footer" style="background-color: #f9fafb; border-top: 1px solid #e5e7eb; padding: 1rem;">
                         <div class="d-flex flex-wrap align-items-center gap-2" style="min-width: 0;">
-                            <a href="{{ url_for('export_data', task_id=task.id) }}" class="btn btn-sm" style="font-weight: 500; background-color: white; color: #10b981; border: 1px solid #10b981; height: 36px; display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; flex-shrink: 0;">
+                            <a href="{{ url_for('export.export_data', task_id=task.id) }}" class="btn btn-sm" style="font-weight: 500; background-color: white; color: #10b981; border: 1px solid #10b981; height: 36px; display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; flex-shrink: 0;">
                                 导出
                             </a>
-                            <a href="{{ url_for('smart_analyze', task_id=task.id) }}" class="btn btn-sm" style="font-weight: 500; background-color: white; color: #3b82f6; border: 1px solid #3b82f6; height: 36px; display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; flex-shrink: 0;">
+                            <a href="{{ url_for('analysis.smart_analyze', task_id=task.id) }}" class="btn btn-sm" style="font-weight: 500; background-color: white; color: #3b82f6; border: 1px solid #3b82f6; height: 36px; display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; flex-shrink: 0;">
                                 分析
                             </a>
                             <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ task.id }}" style="font-weight: 500; background-color: white; color: #ef4444; border: 1px solid #ef4444; height: 36px; display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; flex-shrink: 0;">
@@ -87,7 +87,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-                                <form action="{{ url_for('delete_task', task_id=task.id) }}" method="POST">
+                                <form action="{{ url_for('task.delete_task', task_id=task.id) }}" method="POST">
                                     <button type="submit" class="btn btn-danger">确认删除</button>
                                 </form>
                             </div>
@@ -107,7 +107,7 @@
                 </div>
                 <h4>还没有创建任何数据任务</h4>
                 <p class="text-muted mb-4">点击下方按钮创建您的第一个数据任务</p>
-                <a href="{{ url_for('import_task') }}" class="btn btn-primary">导入任务</a>
+                <a href="{{ url_for('import_task.import_task') }}" class="btn btn-primary">导入任务</a>
             </div>
         </div>
         {% endif %}
