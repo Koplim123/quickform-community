@@ -196,5 +196,86 @@ def call_ai_model(prompt, ai_config):
             provider_label="OpenAI API"
         )
 
+    elif model == 'anthropic':
+        api_key = model_cfg.api_key if model_cfg else ''
+        api_url = model_cfg.api_url if model_cfg else 'https://api.anthropic.com/v1/messages'
+        extra_settings = model_cfg.extra_settings if model_cfg else ''
+        model_name = extra_settings if extra_settings else 'claude-sonnet-4-6'
+
+        headers = {
+            "Content-Type": "application/json",
+            "x-api-key": api_key,
+            "anthropic-version": "2023-06-01"
+        }
+        data = {
+            "model": model_name,
+            "system": SYSTEM_PROMPT,
+            "messages": [
+                {"role": "user", "content": prompt}
+            ],
+            "max_tokens": 4000
+        }
+
+        try:
+            logger.info(f"调用Anthropic API，URL: {api_url}，模型: {model_name}")
+            response = requests.post(api_url, headers=headers, json=data, timeout=120)
+            logger.info(f"Anthropic API响应状态码: {response.status_code}")
+            logger.info(f"Anthropic API响应内容: {response.text[:500]}")
+            response.raise_for_status()
+            result = response.json()
+            return result["content"][0]["text"]
+        except Exception as e:
+            logger.error(f"Anthropic API调用失败: {str(e)}")
+            raise Exception(f"Anthropic API调用失败: {str(e)}")
+
+    elif model == 'gemini':
+        api_key = model_cfg.api_key if model_cfg else ''
+        api_url = model_cfg.api_url if model_cfg else 'https://generativelanguage.googleapis.com/v1beta'
+        extra_settings = model_cfg.extra_settings if model_cfg else ''
+        # extra_settings 格式: "model_name|auth_type"
+        parts = extra_settings.split('|') if extra_settings else []
+        gemini_model = parts[0] if parts and parts[0] else 'gemini-3.1-pro'
+        auth_type = parts[1] if len(parts) > 1 else 'api_key'
+
+        url = f"{api_url.rstrip('/')}/models/{gemini_model}:generateContent"
+
+        if auth_type == 'api_key':
+            url += f"?key={api_key}"
+            headers = {"Content-Type": "application/json"}
+        else:
+            headers = {
+                "Content-Type": "application/json",
+                "Authorization": f"Bearer {api_key}"
+            }
+
+        data = {
+            "systemInstruction": {
+                "role": "system",
+                "parts": [{"text": SYSTEM_PROMPT}]
+            },
+            "contents": [
+                {
+                    "role": "user",
+                    "parts": [{"text": prompt}]
+                }
+            ],
+            "generationConfig": {
+                "temperature": 0.7,
+                "maxOutputTokens": 4000
+            }
+        }
+
+        try:
+            logger.info(f"调用Gemini API，URL: {url.split('?')[0]}，模型: {gemini_model}")
+            response = requests.post(url, headers=headers, json=data, timeout=120)
+            logger.info(f"Gemini API响应状态码: {response.status_code}")
+            logger.info(f"Gemini API响应内容: {response.text[:500]}")
+            response.raise_for_status()
+            result = response.json()
+            return result["candidates"][0]["content"]["parts"][0]["text"]
+        except Exception as e:
+            logger.error(f"Gemini API调用失败: {str(e)}")
+            raise Exception(f"Gemini API调用失败: {str(e)}")
+
     else:
         raise Exception(f"不支持的AI模型: {model}")

@@ -69,6 +69,8 @@
                                     <option value="siliconflow" {% if ai_config and ai_config.selected_model == 'siliconflow' %}selected{% endif %}>硅基流动</option>
                                     <option value="ollama" {% if ai_config and ai_config.selected_model == 'ollama' %}selected{% endif %}>Ollama (本地)</option>
                                     <option value="openai" {% if ai_config and ai_config.selected_model == 'openai' %}selected{% endif %}>OpenAI</option>
+                                    <option value="anthropic" {% if ai_config and ai_config.selected_model == 'anthropic' %}selected{% endif %}>Anthropic</option>
+                                    <option value="gemini" {% if ai_config and ai_config.selected_model == 'gemini' %}selected{% endif %}>Gemini</option>
                                 </select>
                             </div>
                             
@@ -158,6 +160,55 @@
                                     <small class="form-text text-muted" style="color: #6b7280;">请输入模型名称，如：gpt-5.5、gpt-4o、gpt-4-turbo 等</small>
                                 </div>
                                 <button type="button" class="btn btn-info mt-2 test-api-key" data-model="openai" data-api-key-field="openai_api_key" data-api-url-field="openai_api_url" data-model-field="openai_model" style="font-weight: 500; background-color: #3b82f6; border: none; border-radius: 6px; padding: 0.625rem 1.5rem;">测试连接</button>
+                            </div>
+
+                            <div id="anthropic_config" class="model-config">
+                                <h5 class="mt-4 mb-3" style="color: #111827; font-weight: 600;">Anthropic 配置</h5>
+                                <div class="form-group">
+                                    <label for="anthropic_api_key" style="font-weight: 600; color: #111827;">API Key</label>
+                                    <input type="password" class="form-control api-key-input" id="anthropic_api_key" name="anthropic_api_key" value="{{ model_configs_dict['anthropic'].api_key if model_configs_dict.get('anthropic') else '' }}" style="border: 1px solid #d1d5db; border-radius: 6px; padding: 0.625rem 0.875rem;">
+                                </div>
+                                <div class="form-group">
+                                    <label for="anthropic_api_url" style="font-weight: 600; color: #111827;">请求地址</label>
+                                    <input type="text" class="form-control" id="anthropic_api_url" name="anthropic_api_url" value="{{ model_configs_dict['anthropic'].api_url if model_configs_dict.get('anthropic') else 'https://api.anthropic.com/v1/messages' }}" placeholder="https://api.anthropic.com/v1/messages" style="border: 1px solid #d1d5db; border-radius: 6px; padding: 0.625rem 0.875rem;">
+                                    <small class="form-text text-muted" style="color: #6b7280;">Anthropic Messages API 地址</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="anthropic_model" style="font-weight: 600; color: #111827;">模型名称</label>
+                                    <input type="text" class="form-control" id="anthropic_model" name="anthropic_model" value="{{ model_configs_dict['anthropic'].extra_settings if model_configs_dict.get('anthropic') else 'claude-sonnet-4-6' }}" placeholder="claude-sonnet-4-6" style="border: 1px solid #d1d5db; border-radius: 6px; padding: 0.625rem 0.875rem;">
+                                    <small class="form-text text-muted" style="color: #6b7280;">如：claude-sonnet-4-6、claude-opus-4-7 等</small>
+                                </div>
+                                <button type="button" class="btn btn-info mt-2 test-api-key" data-model="anthropic" data-api-key-field="anthropic_api_key" data-api-url-field="anthropic_api_url" data-model-field="anthropic_model" style="font-weight: 500; background-color: #3b82f6; border: none; border-radius: 6px; padding: 0.625rem 1.5rem;">测试连接</button>
+                            </div>
+
+                            <div id="gemini_config" class="model-config">
+                                <h5 class="mt-4 mb-3" style="color: #111827; font-weight: 600;">Gemini 配置</h5>
+                                <div class="form-group mb-2">
+                                    <label style="font-weight: 600; color: #111827; display: block;">认证方式</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gemini_auth_type" id="gemini_auth_api_key" value="api_key" {% if not model_configs_dict.get('gemini') or not model_configs_dict['gemini'].extra_settings or model_configs_dict['gemini'].extra_settings.split('|')[-1] == 'api_key' %}checked{% endif %}>
+                                        <label class="form-check-label" for="gemini_auth_api_key">API Key</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gemini_auth_type" id="gemini_auth_bearer" value="bearer" {% if model_configs_dict.get('gemini') and model_configs_dict['gemini'].extra_settings and model_configs_dict['gemini'].extra_settings.split('|')[-1] == 'bearer' %}checked{% endif %}>
+                                        <label class="form-check-label" for="gemini_auth_bearer">Bearer Token</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gemini_api_key" style="font-weight: 600; color: #111827;" id="gemini_key_label">API Key</label>
+                                    <input type="password" class="form-control api-key-input" id="gemini_api_key" name="gemini_api_key" value="{{ model_configs_dict['gemini'].api_key if model_configs_dict.get('gemini') else '' }}" style="border: 1px solid #d1d5db; border-radius: 6px; padding: 0.625rem 0.875rem;">
+                                </div>
+                                <div class="form-group">
+                                    <label for="gemini_api_url" style="font-weight: 600; color: #111827;">请求地址</label>
+                                    <input type="text" class="form-control" id="gemini_api_url" name="gemini_api_url" value="{{ model_configs_dict['gemini'].api_url if model_configs_dict.get('gemini') else 'https://generativelanguage.googleapis.com/v1beta' }}" placeholder="https://generativelanguage.googleapis.com/v1beta" style="border: 1px solid #d1d5db; border-radius: 6px; padding: 0.625rem 0.875rem;">
+                                    <small class="form-text text-muted" style="color: #6b7280;">会自动拼接 /models/{模型名}:generateContent</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gemini_model" style="font-weight: 600; color: #111827;">模型名称</label>
+                                    <input type="text" class="form-control" id="gemini_model" name="gemini_model" value="{{ (model_configs_dict['gemini'].extra_settings.split('|')[0]) if model_configs_dict.get('gemini') and model_configs_dict['gemini'].extra_settings else 'gemini-3.1-pro' }}" placeholder="gemini-3.1-pro" style="border: 1px solid #d1d5db; border-radius: 6px; padding: 0.625rem 0.875rem;">
+                                    <small class="form-text text-muted" style="color: #6b7280;">如：gemini-3.1-pro、gemini-2.5-flash 等</small>
+                                </div>
+                                <button type="button" class="btn btn-info mt-2 test-api-key" data-model="gemini" data-api-key-field="gemini_api_key" data-api-url-field="gemini_api_url" data-model-field="gemini_model" style="font-weight: 500; background-color: #3b82f6; border: none; border-radius: 6px; padding: 0.625rem 1.5rem;">测试连接</button>
                             </div>
 
                             <button type="submit" class="btn btn-success mt-4" style="font-weight: 500; background-color: #10b981; border: none; border-radius: 6px; padding: 0.625rem 1.5rem;">保存配置</button>
@@ -284,6 +335,8 @@
         document.getElementById('siliconflow_config').style.display = model === 'siliconflow' ? 'block' : 'none';
         document.getElementById('ollama_config').style.display = model === 'ollama' ? 'block' : 'none';
         document.getElementById('openai_config').style.display = model === 'openai' ? 'block' : 'none';
+        document.getElementById('anthropic_config').style.display = model === 'anthropic' ? 'block' : 'none';
+        document.getElementById('gemini_config').style.display = model === 'gemini' ? 'block' : 'none';
     });
 
     // 初始化显示
@@ -295,7 +348,16 @@
     document.getElementById('siliconflow_config').style.display = selectedModel === 'siliconflow' ? 'block' : 'none';
     document.getElementById('ollama_config').style.display = selectedModel === 'ollama' ? 'block' : 'none';
     document.getElementById('openai_config').style.display = selectedModel === 'openai' ? 'block' : 'none';
-    
+    document.getElementById('anthropic_config').style.display = selectedModel === 'anthropic' ? 'block' : 'none';
+    document.getElementById('gemini_config').style.display = selectedModel === 'gemini' ? 'block' : 'none';
+
+    // Gemini 认证方式切换
+    document.querySelectorAll('input[name="gemini_auth_type"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            document.getElementById('gemini_key_label').textContent = this.value === 'api_key' ? 'API Key' : 'Bearer Token';
+        });
+    });
+
     // API密钥测试功能
     document.querySelectorAll('.test-api-key').forEach(button => {
         button.addEventListener('click', async function() {
@@ -318,9 +380,13 @@
                 modelName = document.getElementById(modelField).value;
             }
 
-            if (model === 'ollama' || model === 'openai') {
-                if (!apiUrl) {
+            if (model === 'ollama' || model === 'openai' || model === 'anthropic' || model === 'gemini') {
+                if (!apiUrl && (model === 'ollama' || model === 'openai')) {
                     alert('请先输入' + (model === 'ollama' ? 'Ollama API地址' : 'OpenAI API地址'));
+                    return;
+                }
+                if (!apiKey && (model === 'anthropic' || model === 'gemini')) {
+                    alert('请先输入' + (model === 'anthropic' ? 'Anthropic API Key' : 'Gemini API Key/Token'));
                     return;
                 }
             } else {

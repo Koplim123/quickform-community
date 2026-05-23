@@ -52,6 +52,8 @@ def profile():
                     ('siliconflow', request.form.get('siliconflow_api_key', ''), '', request.form.get('siliconflow_model', 'Qwen/Qwen2.5-72B-Instruct')),
                     ('ollama', '', request.form.get('ollama_api_url', 'http://localhost:11434'), request.form.get('ollama_model', 'llama3.2')),
                     ('openai', request.form.get('openai_api_key', ''), request.form.get('openai_api_url', 'https://api.openai.com/v1'), request.form.get('openai_model', 'gpt-5.5')),
+                    ('anthropic', request.form.get('anthropic_api_key', ''), request.form.get('anthropic_api_url', 'https://api.anthropic.com/v1/messages'), request.form.get('anthropic_model', 'claude-sonnet-4-6')),
+                    ('gemini', request.form.get('gemini_api_key', ''), request.form.get('gemini_api_url', 'https://generativelanguage.googleapis.com/v1beta'), request.form.get('gemini_model', 'gemini-3.1-pro') + '|' + request.form.get('gemini_auth_type', 'api_key')),
                 ]
 
                 for model_name, api_key, api_url, extra_settings in model_configs:
