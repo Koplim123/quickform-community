@@ -233,5 +233,41 @@ def call_ai_model(prompt, ai_config):
             logger.error(f"Ollama API调用失败: {str(e)}")
             raise Exception(f"Ollama API调用失败: {str(e)}")
 
+    elif ai_config.selected_model == 'openai':
+        model_cfg = get_model_config('openai')
+        api_key = model_cfg.api_key if model_cfg else ''
+        api_url = model_cfg.api_url if model_cfg else 'https://api.openai.com/v1'
+        extra_settings = model_cfg.extra_settings if model_cfg else ''
+        openai_model = extra_settings if extra_settings else 'gpt-5.5'
+
+        if not api_url.endswith('/chat/completions') and not api_url.endswith('/'):
+            api_url = api_url.rstrip('/') + '/chat/completions'
+
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}"
+        }
+        data = {
+            "model": openai_model,
+            "messages": [
+                {"role": "system", "content": "你是一个专业的数据分析助手。请基于用户提供的数据，生成一份详细、专业、有洞察力的分析报告。"},
+                {"role": "user", "content": prompt}
+            ],
+            "temperature": 0.7,
+            "max_tokens": 4000
+        }
+
+        try:
+            logger.info(f"调用OpenAI API，URL: {api_url}，模型: {openai_model}")
+            response = requests.post(api_url, headers=headers, json=data, timeout=120)
+            logger.info(f"OpenAI API响应状态码: {response.status_code}")
+            logger.info(f"OpenAI API响应内容: {response.text[:500]}")
+            response.raise_for_status()
+            result = response.json()
+            return result["choices"][0]["message"]["content"]
+        except Exception as e:
+            logger.error(f"OpenAI API调用失败: {str(e)}")
+            raise Exception(f"OpenAI API调用失败: {str(e)}")
+
     else:
         raise Exception(f"不支持的AI模型: {ai_config.selected_model}")

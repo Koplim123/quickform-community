@@ -51,6 +51,7 @@ def profile():
                     ('glm', request.form.get('glm_api_key', ''), '', ''),
                     ('siliconflow', request.form.get('siliconflow_api_key', ''), '', request.form.get('siliconflow_model', 'Qwen/Qwen2.5-72B-Instruct')),
                     ('ollama', '', request.form.get('ollama_api_url', 'http://localhost:11434'), request.form.get('ollama_model', 'llama3.2')),
+                    ('openai', request.form.get('openai_api_key', ''), request.form.get('openai_api_url', 'https://api.openai.com/v1'), request.form.get('openai_model', 'gpt-5.5')),
                 ]
 
                 for model_name, api_key, api_url, extra_settings in model_configs:
