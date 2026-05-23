@@ -26,4 +26,4 @@ ALLOWED_EXTENSIONS = {'pdf', 'html', 'htm', 'jpg', 'zip'}
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'dev_secret_key')
 DATABASE_URL = 'sqlite:///quickform.db'
-APP_NAME = 'QuickForm教师版'
+APP_NAME = 'QuickForm社区版'

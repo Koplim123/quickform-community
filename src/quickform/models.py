@@ -1,6 +1,7 @@
 import random
 import string
 from datetime import datetime
+from flask_login import UserMixin
 from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
@@ -25,7 +26,7 @@ def generate_custom_id():
 
 
 # 数据库模型
-class User(Base):
+class User(Base, UserMixin):
     __tablename__ = 'user'
     id = Column(Integer, primary_key=True)
     username = Column(String(50), unique=True, nullable=False)
