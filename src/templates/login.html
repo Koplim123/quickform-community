@@ -13,7 +13,7 @@
                 <form method="POST" action="{{ url_for('auth.login') }}">
                     <div class="mb-4">
                         <label for="username" class="form-label" style="font-weight: 600; color: #111827; margin-bottom: 0.5rem;">用户名</label>
-                        <input type="text" class="form-control" id="username" name="username" required placeholder="请输入您的用户名" value="wst" style="border: 1px solid #d1d5db; border-radius: 6px; padding: 0.625rem 0.875rem;">
+                        <input type="text" class="form-control" id="username" name="username" required placeholder="请输入您的用户名"  style="border: 1px solid #d1d5db; border-radius: 6px; padding: 0.625rem 0.875rem;">
                     </div>
                     <div class="mb-4">
                         <label for="password" class="form-label" style="font-weight: 600; color: #111827; margin-bottom: 0.5rem;">密码</label>
@@ -26,7 +26,10 @@
                     <button type="submit" class="btn btn-primary w-100 py-2" style="font-weight: 500; background-color: #2563eb; border-color: #2563eb; border-radius: 6px; padding: 0.625rem 1.5rem; min-height: 40px;">登录</button>
                 </form>
                 <div class="mt-3 text-center">
-                    <small style="color: #6b7280;">默认用户名和密码请查看“README.md”文件</small>
+                    <small style="color: #6b7280;">默认用户名和密码请查看"README.md"文件</small>
+                </div>
+                <div class="mt-2 text-center">
+                    <small>还没有账号？<a href="{{ url_for('auth.register') }}" style="color: #2563eb;">注册新账号</a></small>
                 </div>
             </div>
         </div>
