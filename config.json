@@ -1,0 +1,11 @@
+{
+    "APP_NAME": "QuickForm社区版",
+    "UPLOAD_FOLDER": "static/uploads",
+    "ALLOWED_EXTENSIONS": ["pdf", "html", "htm", "jpg", "zip"],
+    "DEBUG": true,
+    "HOST": "0.0.0.0",
+    "PORT": 5001,
+    "LOG_LEVEL": "INFO",
+    "SECRET_KEY": "dev_secret_key",
+    "DATABASE_URL": "sqlite:///quickform.db"
+}

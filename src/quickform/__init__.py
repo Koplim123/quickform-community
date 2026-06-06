@@ -12,7 +12,6 @@ login_manager = LoginManager()
 
 
 def create_app():
-    # 计算基础目录（src/），因为本文件在 src/quickform/__init__.py
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
     app = Flask(
