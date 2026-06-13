@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 from ..models import SessionLocal, Task, AIConfig, AIModelConfig, QFConfig, User
 from ..config import logger
+from ..crypto import encrypt_value
 
 main_bp = Blueprint('main', __name__)
 
@@ -76,11 +77,11 @@ def profile():
 
                 qf_config = db.query(QFConfig).filter_by(user_id=current_user.id).first()
                 if not qf_config:
-                    qf_config = QFConfig(user_id=current_user.id, username=qf_username, password=qf_password)
+                    qf_config = QFConfig(user_id=current_user.id, username=qf_username, password=encrypt_value(qf_password))
                     db.add(qf_config)
                 else:
                     qf_config.username = qf_username
-                    qf_config.password = qf_password
+                    qf_config.password = encrypt_value(qf_password)
 
                 db.commit()
                 flash('QF配置更新成功', 'success')

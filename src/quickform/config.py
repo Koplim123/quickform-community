@@ -39,6 +39,15 @@ LOG_LEVEL          = readCfg('LOG_LEVEL')
 SECRET_KEY         = readEnv('SECRET_KEY')
 DATABASE_URL       = readEnv('DATABASE_URL')
 
+# --- 加密密钥 ---
+import hashlib as _hashlib, base64 as _base64
+_raw_key = os.getenv('ENCRYPTION_KEY')
+if not _raw_key:
+    _raw_key = _base64.urlsafe_b64encode(
+        _hashlib.sha256(SECRET_KEY.encode()).digest()
+    ).decode()
+ENCRYPTION_KEY = _raw_key
+
 # --- 日志 ---
 logging.basicConfig(
     level=getattr(logging, LOG_LEVEL, logging.INFO),

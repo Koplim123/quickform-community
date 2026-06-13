@@ -12,6 +12,7 @@ from flask_login import login_required, current_user
 from ..models import SessionLocal, Task, Attachment, QFConfig
 from ..models import generate_custom_id
 from ..config import logger
+from ..crypto import validate_url_safe, decrypt_value
 
 import_bp = Blueprint('import_task', __name__)
 
@@ -86,7 +87,7 @@ def import_task_action(apiid):
             qf_config = db.query(QFConfig).filter_by(user_id=current_user.id).first()
             if qf_config and qf_config.username and qf_config.password:
                 quickform_username = qf_config.username
-                quickform_password = qf_config.password
+                quickform_password = decrypt_value(qf_config.password)
             else:
                 flash('请先获取任务列表以验证quickform.cn账号', 'danger')
                 return redirect(url_for('import_task.import_task'))
@@ -157,6 +158,7 @@ def import_task_action(apiid):
                 continue
 
             try:
+                validate_url_safe(attachment_url)
                 html_response = requests.get(attachment_url, timeout=30)
                 html_content = html_response.text
 

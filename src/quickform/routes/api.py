@@ -1,14 +1,17 @@
 import json
 import os
+import queue
 import requests
 import logging
-from flask import Blueprint, request, jsonify, make_response, redirect, url_for
+from flask import Blueprint, request, jsonify, make_response, redirect, url_for, Response
 from flask_login import login_required, current_user
 from werkzeug.security import generate_password_hash
 
 from ..models import SessionLocal, Task, Submission, AIConfig, AIModelConfig, QFConfig, User, Attachment
 from ..config import logger
+from ..crypto import decrypt_value
 from ..ai_service import call_ai_model
+from ..sse import publish, subscribe, unregister
 
 api_bp = Blueprint('api', __name__)
 
@@ -100,7 +103,6 @@ def submit_form(task_id):
                     'submitted_at': sub.submitted_at.strftime('%Y-%m-%d %H:%M:%S')
                 })
             # 直接构建JSON字符串以确保键的顺序
-            import json
             submission_count = len(all_data)
             response_data = {
                 'note': f'Total {submission_count} submission(s).',
@@ -131,17 +133,28 @@ def submit_form(task_id):
             # 如果不是JSON请求，获取表单数据
             form_data = request.form.to_dict()
 
-        # 如果表单数据仍然为空，尝试从请求体获取原始数据
+        # 如果表单数据仍然为空，尝试从请求体获取原始数据并解析为dict
         if not form_data:
             try:
-                form_data = request.get_data(as_text=True)
+                raw = request.get_data(as_text=True)
+                try:
+                    form_data = json.loads(raw)
+                except:
+                    form_data = {'raw': raw}
             except Exception as e:
                 logger.error(f"获取请求体数据失败: {str(e)}")
                 form_data = {}
 
-        submission = Submission(task_id=task.id, data=str(form_data))
+        submission = Submission(task_id=task.id, data=json.dumps(form_data, ensure_ascii=False))
         db.add(submission)
         db.commit()
+
+        publish(task.id, {
+            'type': 'new_submission',
+            'id': submission.id,
+            'data': form_data,
+            'submitted_at': submission.submitted_at.strftime('%Y-%m-%d %H:%M:%S')
+        })
 
         response = jsonify({'message': '提交成功'})
         response.headers['Access-Control-Allow-Origin'] = '*'
@@ -163,7 +176,7 @@ def test_qf_connection():
         try:
             response = requests.post(
                 'https://quickform.cn/cli/list',
-                json={'username': qf_config.username, 'password': qf_config.password},
+                json={'username': qf_config.username, 'password': decrypt_value(qf_config.password)},
                 timeout=10
             )
             result = response.json()
@@ -190,7 +203,7 @@ def get_qf_task_list():
         try:
             response = requests.post(
                 'https://quickform.cn/cli/list',
-                json={'username': qf_config.username, 'password': qf_config.password},
+                json={'username': qf_config.username, 'password': decrypt_value(qf_config.password)},
                 timeout=10
             )
             result = response.json()
@@ -260,3 +273,52 @@ def system_init():
             return jsonify({'success': False, 'message': f'初始化失败: {str(e)}'})
     finally:
         db.close()
+
+
+@api_bp.route('/api/<string:task_id>/stream')
+def sse_stream(task_id):
+    """SSE 实时推送端点 - 连接时推送全量数据，之后实时推送新数据"""
+    db = SessionLocal()
+    try:
+        task = db.query(Task).filter_by(task_id=task_id).first()
+        if not task:
+            return jsonify({'error': '任务不存在'}), 404
+        internal_task_id = task.id
+        task_title = task.title
+
+        # 读取全量数据快照
+        submissions = db.query(Submission).filter_by(task_id=task.id).all()
+        snapshot = []
+        for sub in submissions:
+            try:
+                data = json.loads(sub.data)
+            except:
+                data = sub.data
+            snapshot.append({
+                'id': sub.id,
+                'data': data,
+                'submitted_at': sub.submitted_at.strftime('%Y-%m-%d %H:%M:%S')
+            })
+    finally:
+        db.close()
+
+    def generate():
+        # 连接建立时先推送全量快照
+        yield f"data: {json.dumps({'type': 'snapshot', 'task_id': task_id, 'task_title': task_title, 'total_submissions': len(snapshot), 'submissions': snapshot}, ensure_ascii=False)}\n\n"
+
+        sse_id, q = subscribe(internal_task_id)
+        try:
+            while True:
+                try:
+                    data = q.get(timeout=15)
+                    yield f"data: {data}\n\n"
+                except queue.Empty:
+                    yield ":heartbeat\n\n"
+        except GeneratorExit:
+            pass
+        finally:
+            unregister(sse_id, internal_task_id)
+
+    return Response(generate(), mimetype='text/event-stream',
+                    headers={'Cache-Control': 'no-cache', 'X-Accel-Buffering': 'no',
+                             'Access-Control-Allow-Origin': '*'})

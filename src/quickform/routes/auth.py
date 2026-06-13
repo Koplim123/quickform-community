@@ -26,7 +26,9 @@ def login():
                     return redirect(url_for('main.profile'))
 
                 next_page = request.args.get('next')
-                return redirect(next_page) if next_page else redirect(url_for('main.dashboard'))
+                if next_page and next_page.startswith('/') and not next_page.startswith('//'):
+                    return redirect(next_page)
+                return redirect(url_for('main.dashboard'))
             else:
                 flash('用户名或密码错误', 'danger')
         finally:

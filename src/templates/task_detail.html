@@ -134,6 +134,28 @@
                     <strong class="d-block mb-2">💡 数据接口（API）说明：</strong>
                     <span style="color: #6b7280;">访问下方 URL，即GET方式即可查看已收集的数据；制作实时统计页面时可向大模型提供该 URL 及数据样例。<br>点击这里<a href="{{ request.host_url }}api/{{ task.task_id }}" target="_blank">{{ request.host_url }}api/{{ task.task_id }}</a>可以看到全部已经回收的数据。</span>
                 </div>
+                <div class="mb-4">
+                    <strong class="d-block mb-2">📡 实时数据推送（SSE）：</strong>
+                    <span style="color: #6b7280;">通过 SSE 长连接，当有新数据提交时会自动推送到客户端，无需轮询。</span>
+                    <div class="input-group mt-2">
+                        <input type="text" class="form-control" readonly value="{{ request.host_url }}api/{{ task.task_id }}/stream" id="sse-url" style="border-radius: 8px;">
+                        <button class="btn" style="background-color: #f3f4f6; color: #374151; font-weight: 500; border-radius: 8px;" onclick="copyToClipboard('sse-url')">复制</button>
+                    </div>
+                    <div style="background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; margin-top: 10px;">
+                        <pre style="margin: 0; font-size: 13px; color: #374151; white-space: pre-wrap;">// JavaScript 连接示例
+const evtSource = new EventSource("/api/{{ task.task_id }}/stream");
+evtSource.onmessage = function(e) {
+    const msg = JSON.parse(e.data);
+    if (msg.type === "snapshot") {
+        // 连接建立时收到全量快照
+        console.log("快照数据:", msg.submissions);
+    } else if (msg.type === "new_submission") {
+        // 有新数据提交
+        console.log("新提交:", msg.id, msg.data, msg.submitted_at);
+    }
+};</pre>
+                    </div>
+                </div>
             </div>
         </div>
         

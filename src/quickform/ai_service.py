@@ -2,6 +2,8 @@ import json
 import logging
 import requests
 
+from .crypto import validate_url_safe
+
 logger = logging.getLogger(__name__)
 
 SYSTEM_PROMPT = "你是一个专业的数据分析助手。请基于用户提供的数据，生成一份详细、专业、有洞察力的分析报告。"
@@ -169,6 +171,7 @@ def call_ai_model(prompt, ai_config):
         if not api_url.startswith('http'):
             api_url = 'http://' + api_url
         url = f"{api_url.rstrip('/')}/v1/chat/completions"
+        validate_url_safe(url, allow_private=True)
         return _call_chat_api(
             url=url,
             api_key='',
@@ -187,6 +190,7 @@ def call_ai_model(prompt, ai_config):
         if not api_url.endswith('/chat/completions'):
             api_url = api_url.rstrip('/') + '/chat/completions'
 
+        validate_url_safe(api_url)
         return _call_chat_api(
             url=api_url,
             api_key=api_key,
